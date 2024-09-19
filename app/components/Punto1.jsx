@@ -11,6 +11,7 @@ export const Punto1 = () => {
  
     //Punto c
     const [loading, setLoading] = useState(false);
+    const [exito, setExito] = useState('');
 
     // Validaciones
     const validate = () => {
@@ -48,7 +49,7 @@ export const Punto1 = () => {
             setLoading(true);
             setTimeout(() => {
                 setLoading(false);
-                Alert.alert('Éxitazo Hermano!!', `Gracias, ${name}, por tomarte el tiempo. Vuelve cuando quieras... Deja de mandarle mensajes a tu ex`);
+                setExito(`Éxitazo Hermano!!\nGracias, ${name}, por tomarte el tiempo.\nVuelve cuando quieras... \nDeja de mandarle mensajes a tu ex`);
                 setName('');
                 setEmail('');
                 setMessage('');
@@ -93,6 +94,7 @@ export const Punto1 = () => {
                 <Text style={styles.buttondef}>|| Enviar ||</Text>
             </TouchableOpacity>
             )}
+            {exito ? <Text style={styles.Exito}>{exito}</Text> : null}
         </View>
     );
 };
@@ -150,5 +152,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',          
         letterSpacing: 1,          
       },
+      Exito: {
+        fontFamily: 'Arial',
+        color: '#FFD700',
+        marginTop: 10,
+        fontSize: 18,
+        textAlign: 'center',
+    },
 
 });
